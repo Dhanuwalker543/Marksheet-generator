@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            margin: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, #000000, #4b0082, #00bfff, #8a2be2);
+        }
+        body{
+            font-family: Arial, sans-serif;
+            
+        }
+        #regno{
+            color: red;
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        #form{
+            margin: 4rem;
+            padding: 1rem;
+            background-color: rgba(250, 250, 210, 0.9);
+            background-image: url("images-removebg-preview.png");
+            background-blend-mode: overlay;
+            border: 4px black solid;
+        }
+        #title{
+            text-align: center;
+        }
+        #warp{
+            white-space: wrap;
+            font-weight: bold;
+            font-size: 2.5rem;
+            transform: rotate(45deg);
+            transform-origin: 20% 40%;
+        }
+        .margin{
+            margin: 0.8rem;
+        }
+        #about{
+            margin: 3rem;
+        }
+        .anual{
+            color: brown;
+        }
+        .marksheet-table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .marksheet-table, .marksheet-table th, .marksheet-table td {
+            border: 1px solid #ddd;
+        }
+        .marksheet-table th, .marksheet-table td {
+            padding: 8px;
+            text-align: left;
+        }
+        .marksheet-table th {
+            background-color: #f2f2f2;
+        }
+        .marksheet-table caption {
+            caption-side: top;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: right;
+            margin-bottom: 20px;
+            margin-top: 2rem;
+            display: grid;
+            grid-column: 1fr 1fr;
+            column-gap: 7rem;
+        }
+        .input-section {
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            width: 80%;
+            max-width: 600px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            display: inline-block;
+            width: 200px;
+        }
+        .input-group input {
+            width: 300px;
+            padding: 5px;
+        }
+        #padding{
+            padding-right: 10px;
+        }
+        #last{
+            text-align: center;
+            font-size: 0.7rem;
+        }
+        #inputcen{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: lightblue;
+        }
+        #fol{
+            color:blueviolet;
+            margin-left: 1rem;
+        }
+        #qr{
+            width: 70px;
+            height: 70px;
+            border-radius: 3px;
+        }
+        #qr1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="fol">Enter the Following Details</h1>
+    <br>
+    <br>
+    <div id="inputcen">
+    <div class="input-section">
+        <div class="input-group">
+            <label for="candidate-name">Name of the Candidate:</label>
+            <input type="text" id="candidate-name">
+        </div>
+        <div class="input-group">
+            <label for="reg-no">Reg. No.:</label>
+            <input type="text" id="reg-no">
+        </div>
+        <div class="input-group">
+            <label for="enroll-no">Enrollment No.:</label>
+            <input type="text" id="enroll-no">
+        </div>
+        <div class="input-group">
+            <label for="centre-name">Authorised Training Centre Name:</label>
+            <input type="text" id="centre-name">
+        </div>
+        <div class="input-group">
+            <label for="centre-code">Authorised Training Centre Code:</label>
+            <input type="text" id="centre-code">
+        </div>
+        <div class="input-group">
+            <label for="subject1-theory">Subject 1 (Theory):</label>
+            <input type="number" id="subject1-theory">
+        </div>
+        <div class="input-group">
+            <label for="subject1-practical">Subject 1 (Practical):</label>
+            <input type="number" id="subject1-practical">
+        </div>
+        <div class="input-group">
+            <label for="subject2-theory">Subject 2 (Theory):</label>
+            <input type="number" id="subject2-theory">
+        </div>
+        <div class="input-group">
+            <label for="subject2-practical">Subject 2 (Practical):</label>
+            <input type="number" id="subject2-practical">
+        </div>
+        <div class="input-group">
+            <label for="subject3-theory">Subject 3 (Theory):</label>
+            <input type="number" id="subject3-theory">
+        </div>
+        <div class="input-group">
+            <label for="subject3-practical">Subject 3 (Practical):</label>
+            <input type="number" id="subject3-practical">
+        </div>
+        <div class="input-group">
+            <label for="subject4-theory">Subject 4 (Theory):</label>
+            <input type="number" id="subject4-theory">
+        </div>
+        <div class="input-group">
+            <label for="subject4-practical">Subject 4 (Practical):</label>
+            <input type="number" id="subject4-practical">
+        </div>
+        <div class="input-group">
+            <label for="subject5-theory">Subject 5 (Theory):</label>
+            <input type="number" id="subject5-theory">
+        </div>
+        <div class="input-group">
+            <label for="subject5-practical">Subject 5 (Practical):</label>
+            <input type="number" id="subject5-practical">
+        </div>
+        <button type="submit" onclick="updateTable()">submit</button>
+    </div>
+</div>
+    <div id="form">
+   <div class="header">
+    <h4>Sr.no. <span id="regno">720721110009</span></h4>
+    <img src="images-removebg-preview.png" alt="logo">
+    <div id="qr1">
+    <img src="Untitled 1 (1).png" alt="qr" id="qr" title="QR">
+    <h4>Scan</h4>
+    </div>
+   </div>
+   <div id="title">
+    <p class="margin"><span id="warp">HINDUSTHAN COLLEGE OF ENGINEERING & TECHNOLOGY</span></p>
+    <p id="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptates ex quo aliquam laudantium. Voluptates itaque, provident quam asperiores voluptas porro nobis, numquam, rerum tenetur perferendis sint ipsum repellat a?</p>
+    <h1 class="anual">Annual Statement of Marks</h1>
+   </div>
+   <br>
+   <div>
+    <table class="marksheet-table">
+        <thead>
+            <tr id="padding">
+                <th colspan="3">Name of the Candidate</th>
+                <td colspan="2" id="table-candidate-name">(Candidate's Name)</td>
+                <th rowspan="5">Course name with Code<br>Diploma in Fire & Safety Management<br>DFS012</th>
+            </tr>
+            <tr>
+                <th colspan="3">Reg. No.</th>
+                <td colspan="2" id="table-reg-no">(Registration Number)</td>
+            </tr>
+            <tr>
+                <th colspan="3">Enrollment No.</th>
+                <td colspan="2" id="table-enroll-no">(Enrollment Number)</td>
+            </tr>
+            <tr>
+                <th colspan="3">Authorised Training Centre Name with Code</th>
+                <td colspan="2" id="table-centre-name">(Authorised Training Centre's Name)<br id="table-centre-code">(Authorised Training Centre's Code)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Max. Marks</th>
+                <th>Theory</th>
+                <th>Practical</th>
+                <th>Total in Words</th>
+            </tr>
+            <tr>
+                <td>DFS012-101</td>
+                <td>Subject 1</td>
+                <td>100</td>
+                <td id="table-subject1-theory">XX</td>
+                <td id="table-subject1-practical">00</td>
+                <td id="table-subject1-total">Zero Zero</td>
+            </tr>
+            <tr>
+                <td>DFS012-102</td>
+                <td>Subject 2</td>
+                <td>100</td>
+                <td id="table-subject2-theory">XX</td>
+                <td id="table-subject2-practical">00</td>
+                <td id="table-subject2-total">Zero Zero</td>
+            </tr>
+            <tr>
+                <td>DFS012-103</td>
+                <td>Subject 3</td>
+                <td>100</td>
+                <td id="table-subject3-theory">XX</td>
+                <td id="table-subject3-practical">00</td>
+                <td id="table-subject3-total">Zero Zero</td>
+            </tr>
+            <tr>
+                <td>DFS012-104</td>
+                <td>Subject 4</td>
+               
+                <td>100</td>
+                <td id="table-subject4-theory">XX</td>
+                <td id="table-subject4-practical">00</td>
+                <td id="table-subject4-total">Zero Zero</td>
+            </tr>
+            <tr>
+                <td>DFS012-105</td>
+                <td>Subject 5</td>
+                <td>100</td>
+                <td id="table-subject5-theory">XX</td>
+                <td id="table-subject5-practical">00</td>
+                <td id="table-subject5-total">Zero Zero</td>
+            </tr>
+            <tr>
+                <th colspan="2">Total</th>
+                <td>500</td>
+                <td colspan="2" id="table-total-marks">0</td>
+                <td id="table-total-marks-words">Zero</td>
+            </tr>
+            <tr>
+                <th colspan="2">Percentage</th>
+                <td colspan="3" id="table-percentage">0%</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <div>
+        <h4>Date: <span>(Date of Result)</span></h4>
+       </div>
+        <h4>Signature of Candidate</h4>
+        <p>(Signature of Controller of Examination)</p>
+        <p>(Deputy Controller of Examination)</p>
+    </div>
+    <div id="last"><p>Lorem ipsum dolor * sit amet consectetur.</p></div>
+   </div>
+</body>
+<script>
+    function updateTable() {
+    const candidateName = document.getElementById('candidate-name').value;
+    const regNo = document.getElementById('reg-no').value;
+    const enrollNo = document.getElementById('enroll-no').value;
+    const centreName = document.getElementById('centre-name').value;
+    const centreCode = document.getElementById('centre-code').value;
+    const subject1Theory = parseInt(document.getElementById('subject1-theory').value) || 0;
+    const subject1Practical = parseInt(document.getElementById('subject1-practical').value) || 0;
+    const subject2Theory = parseInt(document.getElementById('subject2-theory').value) || 0;
+    const subject2Practical = parseInt(document.getElementById('subject2-practical').value) || 0;
+    const subject3Theory = parseInt(document.getElementById('subject3-theory').value) || 0;
+    const subject3Practical = parseInt(document.getElementById('subject3-practical').value) || 0;
+    const subject4Theory = parseInt(document.getElementById('subject4-theory').value) || 0;
+    const subject4Practical = parseInt(document.getElementById('subject4-practical').value) || 0;
+    const subject5Theory = parseInt(document.getElementById('subject5-theory').value) || 0;
+    const subject5Practical = parseInt(document.getElementById('subject5-practical').value) || 0;
+
+    const total1 = subject1Theory + subject1Practical;
+    const total2 = subject2Theory + subject2Practical;
+    const total3 = subject3Theory + subject3Practical;
+    const total4 = subject4Theory + subject4Practical;
+    const total5 = subject5Theory + subject5Practical;
+    const grandTotal = total1 + total2 + total3 + total4 + total5;
+    const percentage = (grandTotal / 500) * 100;
+    document.getElementById('table-candidate-name').textContent = candidateName;
+    document.getElementById('table-reg-no').textContent = regNo;
+    document.getElementById('table-enroll-no').textContent = enrollNo;
+    document.getElementById('table-centre-name').textContent = centreName;
+    document.getElementById('table-centre-code').textContent = centreCode;
+    document.getElementById('table-subject1-theory').textContent = subject1Theory;
+    document.getElementById('table-subject1-practical').textContent = subject1Practical;
+    document.getElementById('table-subject1-total').textContent = numberToWords(total1);
+    document.getElementById('table-subject2-theory').textContent = subject2Theory;
+    document.getElementById('table-subject2-practical').textContent = subject2Practical;
+    document.getElementById('table-subject2-total').textContent = numberToWords(total2);
+    document.getElementById('table-subject3-theory').textContent = subject3Theory;
+    document.getElementById('table-subject3-practical').textContent = subject3Practical;
+    document.getElementById('table-subject3-total').textContent = numberToWords(total3);
+    document.getElementById('table-subject4-theory').textContent = subject4Theory;
+    document.getElementById('table-subject4-practical').textContent = subject4Practical;
+    document.getElementById('table-subject4-total').textContent = numberToWords(total4);
+    document.getElementById('table-subject5-theory').textContent = subject5Theory;
+    document.getElementById('table-subject5-practical').textContent = subject5Practical;
+    document.getElementById('table-subject5-total').textContent = numberToWords(total5);
+    document.getElementById('table-total-marks').textContent = grandTotal;
+    document.getElementById('table-total-marks-words').textContent = numberToWords(grandTotal);
+    document.getElementById('table-percentage').textContent = percentage.toFixed(2) + "%";
+}
+</script>
+</html>
