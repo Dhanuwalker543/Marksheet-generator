@@ -33,9 +33,10 @@
             margin: 4rem;
             padding: 1rem;
             background-color: rgba(250, 250, 210, 0.9);
-            background-image: url("images-removebg-preview.png");
+            background-image: url("images-removebg-preview.png"),radial-gradient(circle, rgb(230, 96, 230), rgb(92, 235, 92), rgb(35, 35, 252),lightblue);
             background-blend-mode: overlay;
-            border: 4px black solid;
+            border: 2px black solid;
+            outline: 8px solid white;
         }
         #title{
             text-align: center;
@@ -134,6 +135,62 @@
         #qr1{
             text-align: center;
         }
+        @media (max-width: 1200px) {
+    .input-section {
+        width: 90%;
+        max-width: none;
+    }
+    .input-group label {
+        width: 180px;
+    }
+    .input-group input {
+        width: calc(100% - 180px);
+    }
+    .marksheet-table {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .input-group label {
+        width: 150px;
+    }
+    .input-group input {
+        width: calc(100% - 150px);
+    }
+    .marksheet-table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        margin: 0.5rem;
+    }
+    .input-section {
+        width: 100%;
+        padding: 1rem;
+    }
+    .input-group label {
+        width: 100%;
+        display: block;
+        margin-bottom: 5px;
+    }
+    .input-group input {
+        width: 100%;
+    }
+    .marksheet-table th, .marksheet-table td {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -321,7 +378,7 @@
     const enrollNo = document.getElementById('enroll-no').value;
     const centreName = document.getElementById('centre-name').value;
     const centreCode = document.getElementById('centre-code').value;
-    const subject1Theory = parseInt(document.getElementById('subject1-theory').value) || 0;
+    const subject1Theory = parseInt(document.getElementById('table-subject1-theory').value) || 0;
     const subject1Practical = parseInt(document.getElementById('subject1-practical').value) || 0;
     const subject2Theory = parseInt(document.getElementById('subject2-theory').value) || 0;
     const subject2Practical = parseInt(document.getElementById('subject2-practical').value) || 0;
