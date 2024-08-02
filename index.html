@@ -15,7 +15,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(120deg, #000000, #4b0082, #00bfff, #8a2be2);
+            background: linear-gradient(120deg, #000000, #4b0082, #f7adb7, #d80053);
         }
         body{
             font-family: Arial, sans-serif;
@@ -36,7 +36,7 @@
             background-image: url("images-removebg-preview.png"),radial-gradient(circle, rgb(230, 96, 230), rgb(92, 235, 92), rgb(35, 35, 252),lightblue);
             background-blend-mode: overlay;
             border: 2px black solid;
-            outline: 8px solid white;
+            outline: 9px solid white;
         }
         #title{
             text-align: center;
@@ -126,6 +126,7 @@
         #fol{
             color:blueviolet;
             margin-left: 1rem;
+            margin-top: 1rem;
         }
         #qr{
             width: 70px;
@@ -134,6 +135,11 @@
         }
         #qr1{
             text-align: center;
+        }
+        #button{
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            background-color: blueviolet;
         }
         @media (max-width: 1200px) {
     .input-section {
@@ -259,7 +265,7 @@
             <label for="subject5-practical">Subject 5 (Practical):</label>
             <input type="number" id="subject5-practical">
         </div>
-        <button type="submit" onclick="updateTable()">submit</button>
+        <button type="submit" onclick="updateTable()" id="button">submit</button>
     </div>
 </div>
     <div id="form">
@@ -370,55 +376,68 @@
     </div>
     <div id="last"><p>Lorem ipsum dolor * sit amet consectetur.</p></div>
    </div>
-</body>
-<script>
+   <script>
     function updateTable() {
-    const candidateName = document.getElementById('candidate-name').value;
-    const regNo = document.getElementById('reg-no').value;
-    const enrollNo = document.getElementById('enroll-no').value;
-    const centreName = document.getElementById('centre-name').value;
-    const centreCode = document.getElementById('centre-code').value;
-    const subject1Theory = parseInt(document.getElementById('table-subject1-theory').value) || 0;
-    const subject1Practical = parseInt(document.getElementById('subject1-practical').value) || 0;
-    const subject2Theory = parseInt(document.getElementById('subject2-theory').value) || 0;
-    const subject2Practical = parseInt(document.getElementById('subject2-practical').value) || 0;
-    const subject3Theory = parseInt(document.getElementById('subject3-theory').value) || 0;
-    const subject3Practical = parseInt(document.getElementById('subject3-practical').value) || 0;
-    const subject4Theory = parseInt(document.getElementById('subject4-theory').value) || 0;
-    const subject4Practical = parseInt(document.getElementById('subject4-practical').value) || 0;
-    const subject5Theory = parseInt(document.getElementById('subject5-theory').value) || 0;
-    const subject5Practical = parseInt(document.getElementById('subject5-practical').value) || 0;
+        const candidateName = document.getElementById('candidate-name').value;
+        const regNo = document.getElementById('reg-no').value;
+        const enrollNo = document.getElementById('enroll-no').value;
+        const centreName = document.getElementById('centre-name').value;
+        const centreCode = document.getElementById('centre-code').value;
 
-    const total1 = subject1Theory + subject1Practical;
-    const total2 = subject2Theory + subject2Practical;
-    const total3 = subject3Theory + subject3Practical;
-    const total4 = subject4Theory + subject4Practical;
-    const total5 = subject5Theory + subject5Practical;
-    const grandTotal = total1 + total2 + total3 + total4 + total5;
-    const percentage = (grandTotal / 500) * 100;
-    document.getElementById('table-candidate-name').textContent = candidateName;
-    document.getElementById('table-reg-no').textContent = regNo;
-    document.getElementById('table-enroll-no').textContent = enrollNo;
-    document.getElementById('table-centre-name').textContent = centreName;
-    document.getElementById('table-centre-code').textContent = centreCode;
-    document.getElementById('table-subject1-theory').textContent = subject1Theory;
-    document.getElementById('table-subject1-practical').textContent = subject1Practical;
-    document.getElementById('table-subject1-total').textContent = numberToWords(total1);
-    document.getElementById('table-subject2-theory').textContent = subject2Theory;
-    document.getElementById('table-subject2-practical').textContent = subject2Practical;
-    document.getElementById('table-subject2-total').textContent = numberToWords(total2);
-    document.getElementById('table-subject3-theory').textContent = subject3Theory;
-    document.getElementById('table-subject3-practical').textContent = subject3Practical;
-    document.getElementById('table-subject3-total').textContent = numberToWords(total3);
-    document.getElementById('table-subject4-theory').textContent = subject4Theory;
-    document.getElementById('table-subject4-practical').textContent = subject4Practical;
-    document.getElementById('table-subject4-total').textContent = numberToWords(total4);
-    document.getElementById('table-subject5-theory').textContent = subject5Theory;
-    document.getElementById('table-subject5-practical').textContent = subject5Practical;
-    document.getElementById('table-subject5-total').textContent = numberToWords(total5);
-    document.getElementById('table-total-marks').textContent = grandTotal;
-    document.getElementById('table-total-marks-words').textContent = numberToWords(grandTotal);
-    document.getElementById('table-percentage').textContent = percentage.toFixed(2) + "%";
-}
+        const subject1Theory = parseInt(document.getElementById('subject1-theory').value) || 0;
+        const subject1Practical = parseInt(document.getElementById('subject1-practical').value) || 0;
+        const subject2Theory = parseInt(document.getElementById('subject2-theory').value) || 0;
+        const subject2Practical = parseInt(document.getElementById('subject2-practical').value) || 0;
+        const subject3Theory = parseInt(document.getElementById('subject3-theory').value) || 0;
+        const subject3Practical = parseInt(document.getElementById('subject3-practical').value) || 0;
+        const subject4Theory = parseInt(document.getElementById('subject4-theory').value) || 0;
+        const subject4Practical = parseInt(document.getElementById('subject4-practical').value) || 0;
+        const subject5Theory = parseInt(document.getElementById('subject5-theory').value) || 0;
+        const subject5Practical = parseInt(document.getElementById('subject5-practical').value) || 0;
+        document.getElementById('table-candidate-name').textContent = candidateName;
+        document.getElementById('table-reg-no').textContent = regNo;
+        document.getElementById('table-enroll-no').textContent = enrollNo;
+        document.getElementById('table-centre-name').innerHTML = `${centreName}<br>${centreCode}`;
+        document.getElementById('table-subject1-theory').textContent = subject1Theory;
+        document.getElementById('table-subject1-practical').textContent = subject1Practical;
+        document.getElementById('table-subject1-total').textContent = numberToWords(subject1Theory + subject1Practical);
+
+        document.getElementById('table-subject2-theory').textContent = subject2Theory;
+        document.getElementById('table-subject2-practical').textContent = subject2Practical;
+        document.getElementById('table-subject2-total').textContent = numberToWords(subject2Theory + subject2Practical);
+
+        document.getElementById('table-subject3-theory').textContent = subject3Theory;
+        document.getElementById('table-subject3-practical').textContent = subject3Practical;
+        document.getElementById('table-subject3-total').textContent = numberToWords(subject3Theory + subject3Practical);
+
+        document.getElementById('table-subject4-theory').textContent = subject4Theory;
+        document.getElementById('table-subject4-practical').textContent = subject4Practical;
+        document.getElementById('table-subject4-total').textContent = numberToWords(subject4Theory + subject4Practical);
+
+        document.getElementById('table-subject5-theory').textContent = subject5Theory;
+        document.getElementById('table-subject5-practical').textContent = subject5Practical;
+        document.getElementById('table-subject5-total').textContent = numberToWords(subject5Theory + subject5Practical);
+        const totalMarks = subject1Theory + subject1Practical +
+                           subject2Theory + subject2Practical +
+                           subject3Theory + subject3Practical +
+                           subject4Theory + subject4Practical +
+                           subject5Theory + subject5Practical;
+
+        const percentage = (totalMarks / 500) * 100;
+        document.getElementById('table-total-marks').textContent = totalMarks;
+        document.getElementById('table-total-marks-words').textContent = numberToWords(totalMarks);
+        document.getElementById('table-percentage').textContent = `${percentage.toFixed(2)}%`;
+    }
+    function numberToWords(num) {
+        const a = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+        const b = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+
+        if (num < 20) return a[num];
+        const digit = num % 10;
+        if (num < 100) return b[Math.floor(num / 10) - 2] + (digit ? ' ' + a[digit] : '');
+        if (num < 1000) return a[Math.floor(num / 100)] + ' Hundred' + (num % 100 == 0 ? '' : ' and ' + numberToWords(num % 100));
+        return num;
+    }
 </script>
+</body>
 </html>
